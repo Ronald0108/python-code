@@ -1,0 +1,39 @@
+{
+  "pref_name":"静岡県",
+  "city_name":"沼津市",
+  "koaza":"",
+  "shp_file_path":"筆界_ポリゴン.shp",
+  "shp_file_charset":"Shift_JIS",
+  "shp_combine":"",
+  "coord_sys":"JGD2011",
+  "coord_sys_no":"8",
+  "master_data_path":"静岡県沼津市_masterdata.txt",
+  "master_data_path1":"",
+  "master_data_charset":"utf-8",
+  "offset_x":0,
+  "offset_y":0,
+  "aza_delimiter":"/",
+  "branch_delimiter":"-",
+  "data_format":"columns",
+  "skip_address_match": 0,
+  "LINKKEY_ARGUMENTS":{
+    "linkkey_header_arr":[
+      "LINKKEY"
+    ],
+    "linkkey_delimiter":"/"
+  },
+  "COLUMNS_ARGUMENTS":{
+    "aza_header_arr":[
+      "Shozai",
+      ""
+    ],
+    "branch_header_arr":[
+      "Chiban",
+      ""
+    ]
+  },
+  "filter_action":"replace",
+  "filter_keyword":"",
+  "filtered_keyword":"",
+  "filtered_array":[]
+}
