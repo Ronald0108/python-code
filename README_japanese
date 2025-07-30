@@ -1,0 +1,21 @@
+地番データ変換ツール
+
+本プロジェクトは、多様な形式の地番 SHP ファイルを、指定されたパラメータに基づき、統一された TXT ファイルに変換するためのツールです
+
+📁 ディレクトリ構成
+
+. ├── area_dicts/ # 都道府県ごとのマスターデータを格納 ├── masterdata/ # コードから漢字表記に変換するためのマスターデータを格納 ├── input/ # SHP / SHX / DBF ファイルをここに置く ├── output/ # 変換後のファイルおよびエラーログが出力される ├── args.json # SHP ファイルの各種パラメータ設定ファイル ├── epsg_dic.json # 日本の空間座標系 EPSG コード辞書 ├── main.py # メインの実行ファイル ├── create_masterdata.py # マスターデータ作成 ├── sjoin.py # 地番ポイントを筆ポリゴンと対応付け ├── pre_process.py # 前処理ロジック └── util.py # 文字列処理・住所マッチングなどの補助ロジック ⚙️ 使用方法
+
+input/ フォルダに .shp, .shx, .dbf のファイルを配置 args.json に変換に必要な各種パラメータを設定 以下のコマンドで変換を実行： python main.py 結果ファイルおよびエラー情報は output/ に出力されます ⚙️ sjoin.pyの使用方法
+
+地番.shpと筆界線.shpを結合し、地番ポイントを筆ポリゴンに対応付ける処理です
+
+input/ フォルダに以下の2つのSHPファイルを配置： 地番.shp（Pointデータ）　　 ※ 該当のファイル名へ 筆界線.shp（Polygonデータ） ※ 該当のファイル名へ 以下のコマンドで空間結合を実行： python sjoin.py 結果は input/sjoin.shp に保存されます（地番に筆のPolygonを付与したデータ） ※ 両ShapefileのCRS（座標系）が異なる場合は、自動で一致させます ⚙️ create_masterdata.pyの使用方法
+
+大字名称.shpから大字コードと大字名称の対応表を作成し、重複のないマスターデータを生成します
+
+input/ フォルダに 大字名称.shp を配置 以下のコマンドを実行： python create_masterdata.py masterdata/長崎県平戸市_masterdata.txt に　[OOAZACODE] + [OOAZANAME] のタブ区切りデータが出力されます（重複行は除外されます） ※ 都道府県 & OOAZACODEとOOAZANAMEは適宜変更してください 🧩 補足
+
+area_dicts/ フォルダには、各都道府県の地名や地番辞書（マスターデータ）を格納しています epsg_dic.json は、日本国内の地域に対応した EPSG コードを格納しています（JGD2000、JGD2011、Tokyo） 📄 ライセンス
+
+このプロジェクトは社内用ツールとして開発されており、外部ライセンスは適用されません
