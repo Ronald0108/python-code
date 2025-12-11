@@ -1,5 +1,5 @@
 # my description of the code
-python code that reeads a shapefile and outputs a txt file using functions that:
+python code that reads a shapefile and outputs a txt file using functions that:
 -compares addresses from the shapefile against dictionaries for existence through the use of loops
 -"filters" data by changing them from:
 --half width characters to fullwidth
